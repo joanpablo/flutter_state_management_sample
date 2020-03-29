@@ -1,3 +1,5 @@
+## Flutter State Management Sample
+
 ## Getting Started
 
 This project is an example of how to use InheritedNotifier to manage the state in a Flutter app
