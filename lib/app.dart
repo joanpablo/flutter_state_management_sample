@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_state_management_sample/controllers/counter.dart';
+import 'package:flutter_state_management_sample/models/counter.dart';
 import 'package:flutter_state_management_sample/providers/change_notifier_provider.dart';
 import 'package:flutter_state_management_sample/views/home.dart';
 
