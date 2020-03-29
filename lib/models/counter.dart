@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 
 /// This class represents a model
-/// that notify listeners when it has some change
+/// that notify listeners when it has some changes
 class Counter extends ChangeNotifier {
   int _counter = 0;
 
