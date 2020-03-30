@@ -3,6 +3,9 @@ import 'package:flutter_state_management_sample/providers/base_notifier_impl.dar
 
 typedef ChangeNotifierProviderDispose<T> = void Function(T notifier);
 
+///This class is responsible for create an InheritedNotifier for
+///exposing a notifier to all descendants widgets. It also
+///brings a mechanism to dispose when the provider disposes itself.
 class ChangeNotifierProvider<T extends ChangeNotifier> extends StatefulWidget {
   final Widget child;
   final T notifier;
