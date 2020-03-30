@@ -6,7 +6,7 @@ class IncrementButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final counter = Provider.of<Counter>(context, rebuildContext: false);
-    print('rebuilding IncrementButton');
+    print('build IncrementButton');
     return FloatingActionButton(
       onPressed: () {
         counter.increment();

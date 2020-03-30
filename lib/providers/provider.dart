@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_state_management_sample/providers/change_notifier_provider.dart';
+import 'package:flutter_state_management_sample/providers/base_notifier_impl.dart';
 
 /// This class is responsible for providing the requested model
 class Provider {
@@ -14,12 +14,12 @@ class Provider {
       {bool rebuildContext: true}) {
     if (rebuildContext) {
       return context
-          .dependOnInheritedWidgetOfExactType<ChangeNotifierProvider<T>>()
+          .dependOnInheritedWidgetOfExactType<BaseInheritedNotifier<T>>()
           .notifier;
     }
 
     final element = context
-        .getElementForInheritedWidgetOfExactType<ChangeNotifierProvider<T>>();
+        .getElementForInheritedWidgetOfExactType<BaseInheritedNotifier<T>>();
     return (element.widget as InheritedNotifier<T>).notifier;
   }
 }

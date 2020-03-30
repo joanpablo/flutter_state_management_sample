@@ -1,10 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_state_management_sample/providers/base_notifier_impl.dart';
 
-/// Represents a provider that exposes a ChangeNotifier
-/// to its descendants and listen to changes in model and rebuilds all
-/// the dependant widgets.
-class ChangeNotifierProvider<T extends Listenable>
-    extends InheritedNotifier<T> {
-  ChangeNotifierProvider({@required T notifier, @required Widget child})
-      : super(notifier: notifier, child: child);
+typedef ChangeNotifierProviderDispose<T> = void Function(T notifier);
+
+class ChangeNotifierProvider<T extends ChangeNotifier> extends StatefulWidget {
+  final Widget child;
+  final T notifier;
+  final ChangeNotifierProviderDispose<T> dispose;
+
+  const ChangeNotifierProvider(
+      {Key key, @required this.notifier, this.dispose, @required this.child})
+      : super(key: key);
+
+  @override
+  _ChangeNotifierProviderState<T> createState() =>
+      _ChangeNotifierProviderState<T>();
+}
+
+class _ChangeNotifierProviderState<T extends ChangeNotifier>
+    extends State<ChangeNotifierProvider<T>> {
+  @override
+  Widget build(BuildContext context) {
+    print('build ChangeNotifierProvider');
+    return BaseInheritedNotifier<T>(
+      notifier: widget.notifier,
+      child: widget.child,
+    );
+  }
+
+  @override
+  void dispose() {
+    widget.dispose?.call(widget.notifier);
+    super.dispose();
+  }
 }

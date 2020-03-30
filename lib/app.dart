@@ -7,7 +7,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    print('repaint App');
+    print('build App');
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
       ),
       home: ChangeNotifierProvider<Counter>(
         notifier: Counter(),
+        dispose: (counter) => counter.dispose(),
         child: MyHomePage(title: 'Flutter Demo Home Page'),
       ),
     );

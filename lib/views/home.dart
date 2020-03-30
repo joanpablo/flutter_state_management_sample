@@ -10,7 +10,7 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('rebuilding MyHomePage');
+    print('build MyHomePage');
 
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
