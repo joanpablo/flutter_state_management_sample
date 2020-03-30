@@ -25,7 +25,9 @@ class MyApp extends StatelessWidget {
       home: ChangeNotifierProvider<Counter>(
         notifier: Counter(),
         dispose: (counter) => counter.dispose(),
-        child: MyHomePage(title: 'Flutter Demo Home Page'),
+        child: MyHomePage(
+          title: 'Flutter Demo Home Page',
+        ),
       ),
     );
   }
